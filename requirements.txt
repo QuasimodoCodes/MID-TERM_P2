@@ -1,0 +1,11 @@
+# Python dependencies (fill in exact versions before submission)
+numpy
+scipy
+pandas
+matplotlib
+jupyter
+pyDOE
+# add MOEA libraries you plan to use or your own implementation
+# e.g., deap or pygmo
+# deap
+# pygmo

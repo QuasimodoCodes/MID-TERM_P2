@@ -1,0 +1,71 @@
+
+
+
+
+of ⁨5⁩
+
+
+
+Page 1 of 5
+ACIT 4610
+Mid-Term Group Portfolio/Project – 2 -2025
+Multi-Objective Capacitated VRP (MOVRP) Problem Using Multi-Objective
+Evolutionary Algorithms (MOEAs)
+Objective: In Mid-Term Group Portfolio/Project -1, you solved the classical VRP with a single
+depot, customers with known demands, vehicles starting/ending at the depot, where the only
+objective is to minimize total distance. Now we extend this to a more realistic version used in
+logistics: the Capacitated Vehicle Routing Problem (CVRP). You need to develop and
+implement any two Multi-Objective Evolutionary Algorithms (MOEAs) from your lectures.
+The project is to be carried out in the already-approved groups for the Mid-Term Group
+Portfolio/Project -1. Any submission outside this accepted group list will NOT be accepted.
+Submission Deadline: October 3rd (Friday) at 17:00.
+Submission Channel: Canvas.
+• Every group must submit Only ONE submission by any of the group members.
+• The coding must be sent as a GitHub link through email (kazi.ripon@oslomet.no) by
+the submission deadline. You need to ensure it is shareable and executable.
+• Note that we will download the coding immediately after the submission deadline to
+prevent the possibility of updating it later.
+Cheating / Plagiarism: In case of any Cheating/plagiarism, it will be handled according to
+OsloMet’s policy. You can find more about it at https://student.oslomet.no/en/cheating
+Use of Artificial Intelligence (AI):
+• For coding, you can use AI tools as defined by OsloMet’s policy.
+• For the report, you are NOT allowed to use any AI tools.
+• You can find the policy at: https://ansatt.oslomet.no/en/siste-nytt/-/nyhet/veiledning-
+for-bruk-av-kunstig-intelligens-i-studentoppgaver
+1 The Capacitated VRP (CVRP)
+In CVRP, each vehicle has a maximum capacity Q (e.g., truck load limit in kg or pallet space),
+and each customer has a demand di, where a route must not exceed the vehicle’s capacity.
+Example.
+• Depot in the city centre.
+• Vehicle capacity Q = 10.
+• Customer demands: [3, 4, 7, 2, 5].
+• You cannot put customers with demands 7 + 5 in the same route (12 > 10).
+• Feasible routes might be:
+o Route 1: Depot → Customer 1 (3) → Customer 2 (4) → Depot. Load = 7.
+Page 2 of 5
+o Route 2: Depot → Customer 3 (7) → Depot. Load = 7.
+o Route 3: Depot → Customer 4 (2) → Customer 5 (5) → Depot. Load = 7.
+So capacity constraints force more routes than distance minimization alone would suggest.
+Fig. 1: A CVRP with capacity = 10.
+2 Multi-Objective CVRP
+In practice, logistics planners don’t only care about total travel distance. They also want to
+ensure fairness among routes, so no driver has an extremely long or overloaded route
+compared to others. To ensure this, you need to solve the CVRPs using the following two
+objectives:
+1. Total Distance (minimize):
+f1(x)= # distance(route)
+all routes
+2. Route Balance (minimize):
+Two common definitions are possible (pick one and explain in your report):
+o Maximum Route Length (min–max objective):
+f2(x)= distance(r)r
+∈R
+max
+This objective tries to shorten the longest route.
+o Standard Deviation of Route Lengths:
+f2(x)=$ 1
+|R| #(distance(r) - L')2
+r
+∈R
+Where L is the average route length. The goal of this objective is to keep all
+routes close to the same length.
