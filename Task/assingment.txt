@@ -1,71 +1,63 @@
+ACIT 4610: Mid-Term Group Portfolio/Project - 2
+=================================================
+Project Title: Multi-Objective Capacitated VRP (MOVRP) Using MOEAs
+=================================================
+
+**PROJECT SUMMARY**
+
+The core task is to solve the Multi-Objective Capacitated Vehicle Routing Problem (MOVRP). You will implement two different Multi-Objective Evolutionary Algorithms (MOEAs) from your lectures to find optimal delivery routes. The solutions must balance two conflicting objectives: minimizing the total travel distance and ensuring the routes are well-balanced. You will then perform a detailed analysis of your algorithms' performance across various problem sizes.
 
 
+**TASK DETAILS**
 
+1.  **ALGORITHM IMPLEMENTATION**
+    * You must select and implement two different Multi-Objective Evolutionary Algorithms (MOEAs) that were discussed in your lectures.
 
-of ⁨5⁩
+2.  **PROBLEM DEFINITION & OBJECTIVES**
+    * The problem is the Capacitated Vehicle Routing Problem (CVRP), where each vehicle has a capacity limit (Q) that cannot be exceeded by the sum of customer demands on its route.
+    * You must optimize for two objectives simultaneously:
+        * Objective 1 (Total Distance): Minimize the sum of the distances of all routes.
+        * Objective 2 (Route Balance): Minimize the imbalance between routes. You must CHOOSE ONE of the following methods and justify your choice in the report:
+            * Option A: Minimize the Maximum Route Length (Min-Max).
+            * Option B: Minimize the Standard Deviation of Route Lengths.
 
+3.  **EXPERIMENTAL SETUP**
+    * **Instances:** You are required to test your algorithms on a total of SIX (6) problem instances from the CVRPLIB. These must be organized into three size groups:
+        * 2 x Small (S) instances
+        * 2 x Medium (M) instances
+        * 2 x Large (L) instances
+        
+        *Note: It is strongly recommended to confirm this interpretation (6 total instances) with your instructor due to a slight ambiguity in the project description.*
 
+    * **Runs:** For each of the 6 instances, you must run EACH of your two algorithms AT LEAST 20 times. Each run should use a different random seed for statistical validity.
 
-Page 1 of 5
-ACIT 4610
-Mid-Term Group Portfolio/Project – 2 -2025
-Multi-Objective Capacitated VRP (MOVRP) Problem Using Multi-Objective
-Evolutionary Algorithms (MOEAs)
-Objective: In Mid-Term Group Portfolio/Project -1, you solved the classical VRP with a single
-depot, customers with known demands, vehicles starting/ending at the depot, where the only
-objective is to minimize total distance. Now we extend this to a more realistic version used in
-logistics: the Capacitated Vehicle Routing Problem (CVRP). You need to develop and
-implement any two Multi-Objective Evolutionary Algorithms (MOEAs) from your lectures.
-The project is to be carried out in the already-approved groups for the Mid-Term Group
-Portfolio/Project -1. Any submission outside this accepted group list will NOT be accepted.
-Submission Deadline: October 3rd (Friday) at 17:00.
-Submission Channel: Canvas.
-• Every group must submit Only ONE submission by any of the group members.
-• The coding must be sent as a GitHub link through email (kazi.ripon@oslomet.no) by
-the submission deadline. You need to ensure it is shareable and executable.
-• Note that we will download the coding immediately after the submission deadline to
-prevent the possibility of updating it later.
-Cheating / Plagiarism: In case of any Cheating/plagiarism, it will be handled according to
-OsloMet’s policy. You can find more about it at https://student.oslomet.no/en/cheating
-Use of Artificial Intelligence (AI):
-• For coding, you can use AI tools as defined by OsloMet’s policy.
-• For the report, you are NOT allowed to use any AI tools.
-• You can find the policy at: https://ansatt.oslomet.no/en/siste-nytt/-/nyhet/veiledning-
-for-bruk-av-kunstig-intelligens-i-studentoppgaver
-1 The Capacitated VRP (CVRP)
-In CVRP, each vehicle has a maximum capacity Q (e.g., truck load limit in kg or pallet space),
-and each customer has a demand di, where a route must not exceed the vehicle’s capacity.
-Example.
-• Depot in the city centre.
-• Vehicle capacity Q = 10.
-• Customer demands: [3, 4, 7, 2, 5].
-• You cannot put customers with demands 7 + 5 in the same route (12 > 10).
-• Feasible routes might be:
-o Route 1: Depot → Customer 1 (3) → Customer 2 (4) → Depot. Load = 7.
-Page 2 of 5
-o Route 2: Depot → Customer 3 (7) → Depot. Load = 7.
-o Route 3: Depot → Customer 4 (2) → Customer 5 (5) → Depot. Load = 7.
-So capacity constraints force more routes than distance minimization alone would suggest.
-Fig. 1: A CVRP with capacity = 10.
-2 Multi-Objective CVRP
-In practice, logistics planners don’t only care about total travel distance. They also want to
-ensure fairness among routes, so no driver has an extremely long or overloaded route
-compared to others. To ensure this, you need to solve the CVRPs using the following two
-objectives:
-1. Total Distance (minimize):
-f1(x)= # distance(route)
-all routes
-2. Route Balance (minimize):
-Two common definitions are possible (pick one and explain in your report):
-o Maximum Route Length (min–max objective):
-f2(x)= distance(r)r
-∈R
-max
-This objective tries to shorten the longest route.
-o Standard Deviation of Route Lengths:
-f2(x)=$ 1
-|R| #(distance(r) - L')2
-r
-∈R
-Where L is the average route length. The goal of this objective is to keep all
-routes close to the same length.
+    * **Budget & Fair Comparison:** Both MOEAs must be compared under identical conditions. This means using the same "budget":
+        * Identical population size
+        * Identical number of generations
+        * Identical crossover and mutation probabilities
+        * Termination condition: A fixed number of generations.
+
+    * **Performance Metrics:** For every run, you must record:
+        * Wall-clock runtime (in seconds).
+        * Total number of fitness evaluations.
+
+4.  **COMPARISON AND ANALYSIS**
+    * **Pareto Front Analysis:** Compare the Pareto fronts produced by each algorithm. Your analysis must focus on:
+        * Convergence: How close the solutions get to the optimal front.
+        * Diversity: How well the solutions are spread across the front.
+
+    * **Parameter Sensitivity Analysis:** You must test and analyze THREE (3) different sets of MOEA parameters (e.g., three different combinations of population size, generation number, crossover prob., etc.). This analysis must be performed on all 6 test instances to see how parameter changes affect performance.
+
+**SUBMISSION REQUIREMENTS**
+
+* **Deadline:** Friday, October 3rd, 2025, at 17:00.
+
+* **Deliverable 1: The Report**
+    * Must be submitted via Canvas.
+    * Only ONE submission per group.
+    * **AI Policy: You are NOT allowed to use any AI tools to write the report.**
+
+* **Deliverable 2: The Code**
+    * Must be sent as a shareable and executable GitHub link via email to kazi.ripon@oslomet.no.
+    * The code will be downloaded immediately after the deadline.
+    * **AI Policy: You ARE allowed to use AI tools for coding assistance.**
