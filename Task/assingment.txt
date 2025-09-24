@@ -22,13 +22,11 @@ The core task is to solve the Multi-Objective Capacitated Vehicle Routing Proble
             * Option B: Minimize the Standard Deviation of Route Lengths.
 
 3.  **EXPERIMENTAL SETUP**
-    * **Instances:** You are required to test your algorithms on a total of SIX (6) problem instances from the CVRPLIB. These must be organized into three size groups:
+    * **Instances:** You are required to test your algorithms on a total of SIX (6) X 2 (two instances) problem instances from the CVRPLIB. These must be organized into three size groups:
         * 2 x Small (S) instances
         * 2 x Medium (M) instances
         * 2 x Large (L) instances
         
-        *Note: It is strongly recommended to confirm this interpretation (6 total instances) with your instructor due to a slight ambiguity in the project description.*
-
     * **Runs:** For each of the 6 instances, you must run EACH of your two algorithms AT LEAST 20 times. Each run should use a different random seed for statistical validity.
 
     * **Budget & Fair Comparison:** Both MOEAs must be compared under identical conditions. This means using the same "budget":
